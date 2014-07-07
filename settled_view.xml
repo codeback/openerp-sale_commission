@@ -86,6 +86,7 @@
                 <tree string="Settlement lines">
                     <field name="invoice_id"/>
                     <field name="invoice_date"/>
+                    <field name="invoice_partner"/>
                     <field name="invoice_line_id"/>
                     <field name="amount"/>
                     <field name="commission_id"/>
@@ -162,6 +163,7 @@
                     <field name="invoice_number"/>
                     <field name="invoice_id" invisible="1"/>
                     <field name="invoice_date"/>
+                    <field name="invoice_partner"/>
                     <field name="invoice_amount"/>
                     <field name="settled_amount" sum="Settled total"/>
                     <!--field name="currency_id"/-->

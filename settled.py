@@ -415,6 +415,7 @@ class settlement_line (osv.osv):
     _columns = {
         'invoice_id':fields.related('invoice_line_id', 'invoice_id', type='many2one', relation='account.invoice', string='Invoice'),
         'invoice_date':fields.related('invoice_id','date_invoice', type='date', readonly=True, string='Invoice Date'),
+        'invoice_partner':fields.related('invoice_id','partner_id', type='many2one', relation='res.partner', string='Customer'),
         'settlement_agent_id': fields.many2one('settlement.agent', 'Settlement agent', required=True, select=1, ondelete="cascade"),
         'invoice_line_id': fields.many2one('account.invoice.line', 'Settled invoice line', required=True),
         'amount': fields.float('Invoice line amount', readonly=True),
@@ -463,6 +464,7 @@ class settled_invoice_agent(osv.osv):
         'settlement_agent_id': fields.many2one('settlement.agent', 'Agent settl.', readonly=True, select=1, ondelete="cascade"),
         'invoice_number':fields.related('invoice_id', 'number', type='char', string='Invoice no', readonly=True ),
         'invoice_date':fields.related('invoice_id', 'date_invoice', string ='Invoice date', type='date', readonly=True, select=1 ),
+        'invoice_partner':fields.related('invoice_id','partner_id', type='many2one', relation='res.partner', string='Customer'),
         'invoice_amount':fields.float( 'Amount assigned in invoice', readonly=True),
         'settled_amount':fields.float('Settled amount', readonly=True),
         #'currency_id': fields.many2one('res.currency', 'Currency', readonly=True, select="1")
